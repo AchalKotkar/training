@@ -17,3 +17,4 @@ FROM "DemandAggregate"
 GROUP BY DATE("createdAt")
 ORDER BY date;
 
+

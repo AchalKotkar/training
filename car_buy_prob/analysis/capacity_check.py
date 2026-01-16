@@ -31,9 +31,13 @@ def run_capacity_check():
 
     cur.close()
     conn.close()
+    print("\navailable: ",available_vehicles,"\navg_demand: ",avg_daily_demand,"\ndecision: ",decision)
 
     return {
         "available": available_vehicles,
         "avg_demand": avg_daily_demand,
         "decision": decision
     }
+
+if __name__ == "__main__":
+    run_capacity_check()

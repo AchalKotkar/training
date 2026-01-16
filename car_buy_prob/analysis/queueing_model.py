@@ -39,7 +39,12 @@ def run_queueing_model():
     cur.close()
     conn.close()
 
+    print("\nutilization: ",rho,"\ndecision: ",decision)
+
     return {
         "utilization": rho,
         "decision": decision
     }
+
+if __name__ == "__main__":
+    run_queueing_model()

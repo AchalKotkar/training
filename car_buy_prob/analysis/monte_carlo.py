@@ -43,7 +43,12 @@ def run_monte_carlo():
     cur.close()
     conn.close()
 
+    print("\navg_lost: ",avg_lost,"\ndecision: ",decision)
+
     return {
         "avg_lost": avg_lost,
         "decision": decision
     }
+
+if __name__ == "__main__":
+    run_monte_carlo()

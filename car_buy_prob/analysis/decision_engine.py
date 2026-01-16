@@ -1,12 +1,12 @@
-from monte_carlo import run_monte_carlo
-from queueing_model import run_queueing_model
-from capacity_check import run_capacity_check
+from analysis.capacity_check import run_capacity_check
+from analysis.monte_carlo import run_monte_carlo
+from analysis.queueing_model import run_queueing_model
 
 def final_decision():
+    cap = run_capacity_check()
     mc = run_monte_carlo()
     qm = run_queueing_model()
-    cap = run_capacity_check()
-
+   
     decisions = [
         mc["decision"],
         qm["decision"],
@@ -22,13 +22,15 @@ def final_decision():
     print("\n========= FINAL BUSINESS DECISION =========")
 
     if decisions.count("BUY") >= 2:
-        print("FINAL DECISION: BUY NEW VEHICLES")
+        r="FINAL DECISION: BUY NEW VEHICLES"
 
     elif "CONSIDER" in decisions:
-        print("FINAL DECISION: MONITOR & WAIT")
+        r="FINAL DECISION: MONITOR & WAIT"
 
     else:
-        print("FINAL DECISION: DO NOT BUY")
+        r="FINAL DECISION: DO NOT BUY"
+    
+    return r
 
 if __name__ == "__main__":
     final_decision()
